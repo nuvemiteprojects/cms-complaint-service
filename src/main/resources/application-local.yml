@@ -1,0 +1,20 @@
+server:
+  port: 8102
+
+eureka:
+  client:
+    enabled: false
+
+spring:
+  datasource:
+    # Native Postgres on 5432. For Docker postgres-complaints from host, use port 5445 instead.
+    url: jdbc:postgresql://localhost:5432/cms_complaints_db
+    username: chemical
+    password: chemical
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri: http://localhost:9090/realms/chemical-management
+  kafka:
+    bootstrap-servers: localhost:9092
